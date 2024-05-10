@@ -30,7 +30,24 @@
     </ul>
 
     <script>
+      const list = document.querySelector("ul")
+      const input = document.querySelector("input")
+      const btn = document.querySelector("button")
+      btn.addEventListener("click", addItem)
 
+      function addItem() {
+        const value = input.value
+        input.value = ""
+        const li = document.createElement("li")
+        const span = document.createElement("span")
+        const liBtn = document.createElement("button")
+        li.append(span, liBtn)
+        span.textContent = value
+        liBtn.textContent = "Delete"
+        list.appendChild(li)
+        liBtn.addEventListener("click", (e) => list.removeChild(li))
+        input.focus()
+      }
     </script>
   </body>
 </html>
